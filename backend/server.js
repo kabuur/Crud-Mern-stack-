@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import Post from "./model/Post.js";
 import Post_Rout from "./Router/Posts.js";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 // creating connection database mongoose
 mongoose.connect("mongodb://127.0.0.1:27017/CRUID").then(()=>{
@@ -16,7 +17,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/CRUID").then(()=>{
 const app = express();
 // port of the App 
 const port = 9000
-
+app.use(cors())
 app.use(bodyParser.json())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
