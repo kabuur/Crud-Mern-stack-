@@ -46,6 +46,7 @@ Post_Rout.put("/updatePost/:id", async(req, res) => {
         if (req.body.body){
             updatepost.body = req.body.body
         }
+        res.send(updatepost)
 
        await updatepost.save()
        res.send(updatepost)
@@ -69,6 +70,11 @@ Post_Rout.delete("/deletePost/:id", async(req, res) => {
         res.send(err.message)
         return
     }
+})
+
+//find 
+Post_Rout.get('/findPost', (ret, res)=>{
+    
 })
 
 export default Post_Rout
